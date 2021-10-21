@@ -1,0 +1,34 @@
+require_relative 'BoardCase'
+
+class Board
+
+attr_accessor :boardcases_array, :count_turn
+
+def initialize
+    @boardcases_array = []
+    @available_cases_array = []
+
+    index = 1
+    10.times do 
+      if index <= 3
+        id_case = "A#{index}"
+        current_case = BoardCase.new(id_case)
+        @boardcases_array.push current_case
+
+      elsif index > 3 && index <= 6
+        id_case = "B#{index - 3}"
+        current_case = BoardCase.new(id_case)
+        @boardcases_array.push current_case
+
+      else
+        id_case = "C#{index - 6}"
+        current_case = BoardCase.new(id_case)
+        @boardcases_array.push current_case
+         end
+
+         index += 1
+    end
+
+     @available_cases_array = @boardcases_array
+  end
+  end 
